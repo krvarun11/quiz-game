@@ -1,0 +1,53 @@
+#quiz application 
+print("                  ******************              ")
+print("welcome to the quiz")
+
+question_bank = [
+    {"text": "What is the extinction of python ", "answer": "d"},
+    {"text": "Which keyword is used to define a function in Python?", "answer": "C"},
+    {"text": "What is the output of print(2 + 3 * 4)?", "answer": "B"},
+    {"text": "How do you insert comments in Python?", "answer": "C"},
+    {"text": "What is the correct way to create a variable in Python?", "answer": "B"},
+    {"text": "Which of the following is a data type in Python?", "answer": "B"},
+    {"text": "Which of the following is a correct list in Python    ?", "answer": "A"},
+
+]
+
+
+options = [
+    ["A) .pt", "B) .py", "C) .python", "D) .pyt"],
+    ["A) function", "B) define", "C) def", "D) func"],
+    ["A) 20", "B) 14", "C) 24", "D) 18"],
+    ["A) <!-- comment -->", "B) // comment", "C) # comment", "D) /* comment */"],
+    ["A) int x = 5", "B) x = 5", "C) declare x = 5", "D) var x = 5"],
+    ["A) real", "B) int", "C) num", "D) digit"],
+    ["A) [1, 2, 3]", "B) (1, 2, 3)", "C) {1, 2, 3}", "D) <1, 2, 3>"]
+]
+
+score=0
+
+def check_answer(user_guess,correct_answer):
+    if user_guess==correct_answer:
+        return True
+    else:
+        return False
+
+for question_num in range(len(question_bank)):
+    print("          ***************          ")
+    print(question_bank[question_num]["text"])
+    for i in options[question_num]:
+        print(i)
+
+    guess=input("enter the answer(A/B/C/D) :").upper()
+    is_correct=check_answer(guess,question_bank[question_num]["answer"])
+    if is_correct:
+        print("correct answer")
+        score += 1
+    else:
+        print(f"Incorrect answer")
+        print(f"The correct answer is {question_bank[question_num]['answer']}")
+    print(f"you have given {score}/{question_num+1} correct answers")
+
+
+print(f"your have answered {score} questions correctly")
+print(f"your score is {(score/len(question_bank))*100}%")
